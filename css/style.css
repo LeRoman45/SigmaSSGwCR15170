@@ -16,7 +16,7 @@ header {
 /* група іконок */
 .header-icons {
     display:flex;
-    gap: 100px;                      /* відступ між іконками */
+    gap: 390px;                      /* відступ між іконками */
 }
 
 /* розміри іконок */
@@ -29,6 +29,10 @@ header img {
     height: 120px;
 }
 
+.first_text{
+    text-align: center;
+    margin-top: 40px;
+}               
 h1 {
     color: #A5A5A5;
     text-align: center;
@@ -36,42 +40,55 @@ h1 {
     justify-content: center;
     margin: 60px auto;
 }
-
-.hero {
-    text-align: center;
-    margin-top: 40px;
+.king-block {
+    display: flex;
+    /* keep king left and put buttons immediately to its right */
+    justify-content: flex-start;
+    align-items: center;        /* vertical alignment */
+    gap: 20px;                  /* smaller gap so buttons are closer to the king */
+    margin: 40px auto 0;
+    width: 100%;
+    max-width: 1193px; /* match component width from Figma */
 }
 
-.king {
-    height: 260px;
-    display: block;
-    margin: 0 auto;
+.king-img {
+    height: 420px;
 }
 
 .upper_buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
+    flex-direction: column; /* keep buttons stacked vertically */
+    align-items: flex-end;  /* align buttons to the right edge of the row */
+    /* pull the button block closer to the king when using flex-start on the container */
+    margin-left: 24px; /* slightly farther from the king */
+    width: 360px; /* give the button/text a fixed column so both can be proportional */
 }
 
 .how_to_do_this {
     background: #ff8800;
     color: #000;
-    padding: 14px 35px;
-    border-radius: 15px;
-    font-size: 20px;
+    /* doubled size: increase padding and font-size ~2x */
+    padding: 24px 56px; /* slightly reduced from extreme doubling for better proportions */
+    border-radius: 28px;
+    font-size: 36px;    /* large but more proportional to helper text */
     font-weight: 700;
     cursor: pointer;
-    width: fit-content;
-}
-
-.how_to_do_this:hover {
-    background: #ffa53a;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .how_note {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #c9c9c9;
+        margin-top: 12px;
+        font-size: 16px;            /* increase so it's proportionate with the larger CTA */
+        color: #c9c9c9;
+        text-align: right;          /* right-align the helper text so it sits under the button */
+        max-width: 100%;
 }
+
+/* Responsive tweak: reduce sizes on small screens so layout doesn't overflow */
+@media (max-width:800px){
+    .upper_buttons{width:220px;margin-left:12px}
+    .how_to_do_this{padding:12px 28px;font-size:18px}
+    .how_note{font-size:12px}
+}
+
